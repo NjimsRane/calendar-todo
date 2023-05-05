@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="NjimsRane">
+    <meta name="description"
+        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo earum totam perferendis ut obcaecati sed? Quaerat totam enim iste quia eaque velit nam quam ab, cupiditate sint doloribus sunt. Commodi">
+    <title>Calendar</title>
+    <!-- links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="min-h-screen font-display bg-green-50 flex justify-center items-center">
+    <div class="container relative w-[75rem] h-[53.125rem] mx-auto p-1 text-white rounded-md bg-slate-800">
+        <div class="left w-[80%] p-5 h-full ">
+            <div
+                class="calendar relative w-full h-full flex flex-col flex-wrap justify-between text-gray-500 bg-white rounded calendar-shadow calendar-shadow-before">
+                <div
+                    class="month w-full h-[9.375rem] flex items-center justify-between px-[3.125rem] text-[1.23rem] font-bold capitalize">
+                    <i
+                        class="fa-solid fa-angle-left cursor-pointer hover:text-gray-600 duration-900 transition-all prev-btn"></i>
+                    <div class="date text-xl" id="current-date"></div>
+                    <i
+                        class="fa-solid fa-angle-right cursor-pointer duration-500 transition-all hover:text-gray-600 next-btn"></i>
+                </div>
+                <div
+                    class="weekdays w-full h-[6.25rem] flex items-center justify-between px-5 font-semibold capitalize">
+                    <div class="weekday">sun</div>
+                    <div class="weekday">mon</div>
+                    <div class="weekday">tue</div>
+                    <div class="weekday">wen</div>
+                    <div class="weekday">thu</div>
+                    <div class="weekday">fri</div>
+                    <div class="weekday">sat</div>
+                </div>
+                <div class="days w-full flex flex-wrap justify-between px-5 text-x font-medium mb-5">
+
+                </div>
+                <div
+                    class="goto-today w-full h-[3.125] flex items-center justify-between gap-1 px-5 mb-5 text-[#2c7ca4]">
+                    <div class="goto flex items-center rounded overflow-hidden border">
+                        <input type="text" placeholder="mm/yyyy"
+                            class="date-input w-full h-[1.875rem] rounded-l px-2 text-primary outline-none border-[#2c7ca4] border border-r-0">
+                        <button
+                            class="px-[0.625rem] py-[0.0625rem] capitalize hover:text-white hover:bg-[#2c7ca4] h-[1.870rem]  transition-all duration-500 rounded-r border-l-0">go</button>
+                    </div>
+                    <button class="today-btn capitalize font-semibold">today</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
