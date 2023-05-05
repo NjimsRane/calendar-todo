@@ -29,8 +29,8 @@ html{
 }
 
 @layer weekday{
-    .weekdays div{
-        width: (100% / 7);
+    .weekday{
+        width: 14.28%;
         height:100%;
         display:flex;
         align-items:center;
@@ -40,7 +40,7 @@ html{
 
 @layer day{
     .day{
-        width:calc(100% / 7);
+        width:14.28%;
         height:5.625rem;
         display:flex;
         justify-content:center;
