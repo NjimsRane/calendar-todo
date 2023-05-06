@@ -16,8 +16,9 @@
 </head>
 
 <body class="min-h-screen font-display bg-green-50 flex justify-center items-center">
-    <div class="container relative w-[75rem] h-[53.125rem] mx-auto p-1 text-white rounded-md border-r  bg-gray-700">
-        <div class="left w-[80%] lg:w-[60%] p-5 h-full ">
+    <div
+        class="container relative w-[75rem] min-h-[53.125rem] mx-auto p-1 text-white rounded-md border-r  bg-gray-700 flex justify-center items-center flex-col lg:flex-row gap-10">
+        <div class="left w-[80%] lg:w-[60%]  p-5 ">
             <div
                 class="calendar relative w-full h-full flex flex-col flex-wrap justify-between text-gray-500 bg-white rounded calendar-shadow calendar-shadow-before">
                 <div
@@ -38,19 +39,28 @@
                     <div class="weekday">fri</div>
                     <div class="weekday">sat</div>
                 </div>
-                <div class="days w-full flex flex-wrap justify-between px-5 text-x font-medium mb-5"></div>
+                <div class="days w-full flex flex-wrap  px-5 text-x font-medium mb-5"></div>
 
 
                 <div
-                    class="goto-today w-full h-[3.125] flex items-center justify-between gap-1 px-5 mb-5 text-[#2c7ca4]">
+                    class="goto-today w-full h-[3.125] flex items-center justify-between gap-1 px-5 mb-8 text-[#2c7ca4]">
                     <div class="goto flex items-center rounded overflow-hidden border">
                         <input type="text" placeholder="mm/yyyy"
                             class="date-input w-full h-[1.875rem] rounded-l px-2 text-primary outline-none border-[#2c7ca4] border border-r-0">
                         <button
-                            class="px-[0.625rem] py-[0.0625rem] capitalize hover:text-white hover:bg-[#2c7ca4] h-[1.860rem]  transition-all duration-500 rounded-r border-l-0">go</button>
+                            class="goto-btn px-[0.625rem] py-[0.0625rem] capitalize hover:text-white hover:bg-[#2c7ca4] h-[1.860rem]  transition-all duration-500 rounded-r border-l-0">go</button>
                     </div>
-                    <button class="today-btn capitalize font-semibold">today</button>
+                    <button
+                        class="today-btn capitalize font-semibold transition-all duration-500 hover:text-gray-600">today</button>
                 </div>
+            </div>
+        </div>
+
+        <div class="right lg:w-[40%] relative min-h-full p-5">
+            <div
+                class="today-date flex items-center justify-between flex-wrap h-[3.125rem] gap-2.5 w-full px-10 pl-16 my-12 mb-5 capitalize">
+                <div class="event-day font-medium text-3xl ">wed</div>
+                <div class="event-date font-normal text-sm text-[#878895]">16 November 2023</div>
             </div>
         </div>
     </div>
