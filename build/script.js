@@ -133,3 +133,59 @@ nextBtn.addEventListener('click', nextMonth);
 
 initCalendar();
 
+// events section on the calendar
+const addEventBtn = document.querySelector('#add-event'),
+    addEventContainer = document.querySelector('#add-event-wrapper'),
+    addEventCloseBtn = document.querySelector('.close'),
+    addEventTitle = document.querySelector('.event-name'),
+    addEventFrom = document.querySelector('.event-time-from '),
+    addEventTo = document.querySelector('.event-time-to');
+
+
+addEventBtn.addEventListener('click', () => {
+    addEventContainer.classList.add('active');
+});
+
+addEventCloseBtn.addEventListener('click', () => {
+    addEventContainer.classList.remove('active');
+});
+
+// the container will be closed if click outside
+document.addEventListener('click', (e) => {
+    if (e.target !== addEventBtn && !addEventContainer.contains(e.target)) {
+        addEventContainer.classList.remove('active');
+    }
+});
+
+addEventTitle.addEventListener('input', (e) => {
+    // for the title up to 50 characters can be allowed for title
+    addEventTitle.value = addEventTitle.value.slice(0, 50);
+});
+
+addEventFrom.addEventListener('input', (e) => {
+    // only numbers are allow
+    addEventFrom.value = addEventFrom.value.replace(/[^0-9:]/g, '');
+    // after 2 numbers enterd , : added
+    if (addEventFrom.value.length === 2) {
+        addEventFrom.value += ':';
+    }
+    // dont allow , more than 5 numbers
+    if (addEventFrom.value.length > 5) {
+        addEventFrom.value = addEventFrom.value.slice(0, 5);
+    }
+});
+
+addEventTo.addEventListener('input', (e) => {
+    // only numbers are allow
+    addEventTo.value = addEventTo.value.replace(/[^0-9:]/g, '');
+    // after 2 numbers enterd , : added
+    if (addEventTo.value.length === 2) {
+        addEventTo.value += ':';
+    }
+    // dont allow , more than 5 numbers
+    if (addEventTo.value.length > 5) {
+        addEventTo.value = addEventTo.value.slice(0, 5);
+    }
+
+})
+
