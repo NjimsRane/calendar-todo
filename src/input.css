@@ -48,12 +48,14 @@ html{
         cursor: pointer;
         color:rgb(44, 124, 164);
         transition:all 0.5s ease-in-out;
+        border:1px solid red;
         
     }
 
     .day:not(.prev-date, .next-date):hover{
         color:#fff;
         background-color:rgb(44, 124, 164);
+        
     }
 
     .prev-date,.next-date{
