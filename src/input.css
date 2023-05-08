@@ -52,64 +52,65 @@ html{
         transition:all 0.5s ease-in-out;
         border-radius:2px;
     }
-
-    
-
-    .day:not(.prev-date, .next-date):hover{
-        color:#fff;
-        background-color:rgb(44, 124, 164);
-    }
-
-    .prev-date,.next-date{
-        color:#b3b3b3;
-    }
-
-    .active-day{
-        position: relative;
-        font-size:2rem;
-        color:#fff;
-        background-color:rgb(44, 124, 164);
-    }
-
-    .active-day::before{
-        position: absolute;
-        content:'';
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        box-shadow:0 0 5px 1px rgb(44, 124, 164);
-    }
-
-    .today{
-        font-size:2rem;
-    }
-
-    .set-event{
-        position: relative;
-    }
-
-    .set-event::after{
-        position: absolute;
-        content: '';
-        bottom:10%;
-        left:50%;
-        width:75%;
-        height:0.275rem;
-        transform:translateX(-50%);
-        background-color: #2c7ca4;
-        border-radius:10px;
-        transition:all 0.5s ease-in-out;
-    }
-    .set-event:hover::after{
-        background-color:#fff;
-    }
-
-    .active-day.set-event::after{
-        background-color:#fff;
-        bottom:20%;
-    }
 }
+
+.day:not(.prev-date, .next-date):hover{
+    color:#fff;
+    background-color:rgb(44, 124, 164);
+}
+
+.prev-date,.next-date{
+    color:#b3b3b3;
+}
+
+
+.today{
+    font-size:2rem;
+}
+
+
+.active-day{
+    position: relative;
+    font-size:2rem;
+    color:#fff;
+    background-color:rgb(44, 124, 164);
+}
+
+.active-day::before{
+    position: absolute;
+    content:'';
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    box-shadow:0 0 5px 1px rgb(44, 124, 164);
+}
+
+.set-event{
+    position: relative;
+}
+
+.set-event::after{
+    position: absolute;
+    content: '';
+    bottom:10%;
+    left:50%;
+    width:50%;
+    height:0.275rem;
+    transform:translateX(-50%);
+    background-color: #2c7ca4;
+    border-radius:10px;
+    transition:all 0.5s ease-in-out;
+}
+.set-event:hover::after{
+    background-color:#fff;
+}
+
+.active-day.set-event::after{
+    background-color:#fff;
+    bottom:12%;
+}
+
 
 @layer event{
     .event{
@@ -118,6 +119,7 @@ html{
             #3f4458,
             transparent
         );
+        margin-block-start:0.5rem;
     }
 
     .event:nth-child(even){
@@ -149,6 +151,20 @@ html{
     .event:hover::after{
         display:flex;
     }
+
+    
+}
+
+.no-event{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.5rem;
+    font-weight:600;
+    color:#878787;
+    /* z-index:-1; */
 }
 
 .active{
