@@ -167,11 +167,14 @@ html{
     /* z-index:-1; */
 }
 
-.active{
+/* .active{
+    max-height:18.75rem;
+    background-color:white;
+} */
+.addWindow{
     max-height:18.75rem;
     background-color:white;
 }
-
 
 
 @layer dayBig{
@@ -207,6 +210,7 @@ html{
         transition:all 0.5s ease-in-out;
     }
 }
+
 
 
 /* @layer calendar-shadow-big{

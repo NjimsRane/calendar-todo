@@ -11,6 +11,13 @@ const calendar = document.querySelector('.calendar'),
     eventDate = document.querySelector('.event-date'),
     eventContainer = document.querySelector('.events');
 
+const addEventBtn = document.querySelector('#add-event'),
+    addEventContainer = document.querySelector('#add-event-wrapper'),
+    addEventCloseBtn = document.querySelector('.close'),
+    addEventTitle = document.querySelector('.event-name'),
+    addEventFrom = document.querySelector('.event-time-from '),
+    addEventTo = document.querySelector('.event-time-to');
+
 let today = new Date();
 let month = today.getMonth();
 let year = today.getFullYear();
@@ -55,9 +62,20 @@ const eventsArr = [
     },
 ];
 
+// user name from local storage
+window.addEventListener('load', () => {
+    const nameInput = document.querySelector("#user-name");
+    const userName = localStorage.getItem('username') || '';
+
+    nameInput.value = userName;
+    nameInput.addEventListener('change', e => {
+        localStorage.setItem('username', e.target.value);
+    });
+});
+
 // funcion to add days
 
-const initCalendar = () => {
+function initCalendar() {
     // first day of the current month
     const firstDay = new Date(year, month, 1);
     const day = firstDay.getDate();
@@ -202,26 +220,23 @@ nextBtn.addEventListener('click', nextMonth);
 
 
 // events section on the calendar
-let addEventBtn = document.querySelector('#add-event'),
-    addEventContainer = document.querySelector('#add-event-wrapper'),
-    addEventCloseBtn = document.querySelector('.close'),
-    addEventTitle = document.querySelector('.event-name'),
-    addEventFrom = document.querySelector('.event-time-from '),
-    addEventTo = document.querySelector('.event-time-to');
+
 
 
 addEventBtn.addEventListener('click', () => {
-    addEventContainer.classList.toggle('active');
+    console.log(addEventContainer);
+    addEventContainer.classList.toggle('addWindow');
 });
 
 addEventCloseBtn.addEventListener('click', () => {
-    addEventContainer.classList.remove('active');
+    addEventContainer.classList.remove('addWindow');
 });
 
 // the container will be closed if click outside
 document.addEventListener('click', (e) => {
     if (e.target !== addEventBtn && !addEventContainer.contains(e.target)) {
-        addEventContainer.classList.remove('active');
+
+        addEventContainer.classList.remove('addWindow');
     }
 
 });
@@ -332,7 +347,7 @@ function updateEvents(date) {
         ) {
             event.events.forEach(event => {
                 events += `
-                
+
                 <div
                 class="event relative w-[95%] min-h-[4.375rem] flex justify-center flex-col font-semibold gap-1.5 px-5 pl-5 cursor-pointer transition-all duration-500  rounded">
                 <div class="title flex items-center pointer-events-none">
@@ -353,9 +368,7 @@ function updateEvents(date) {
     //     // if nothing found
 
     if ((events === '')) {
-        events = `<div class='no-event'>
-                <h3>No Events</h3>
-            </div>`;
+        events = `<div class='no-event'><h3>No Events</h3></div>`;
     }
 
     eventContainer.innerHTML = events;
@@ -367,7 +380,7 @@ addEventSubmit.addEventListener('click', () => {
     const eventTimeFrom = addEventFrom.value;
     const eventTimeTo = addEventTo.value;
 
-    if (eventTitle === '' && eventTimeFrom === '' && eventTimeTo === '') {
+    if (eventTitle === '' || eventTimeFrom === '' || eventTimeTo === '') {
         alert('Please fill all the fields');
     }
 });
